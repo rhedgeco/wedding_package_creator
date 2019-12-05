@@ -1,6 +1,9 @@
 #ignore pycharm stuff
 .idea
 
+#ignore virtual environment directory
+/venv/
+
 # Created by https://www.gitignore.io/api/python
 # Edit at https://www.gitignore.io/?templates=python
 
