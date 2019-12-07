@@ -1,4 +1,10 @@
 /* add custom styles here */
+
+@font-face {
+    font-family: "Fancy";
+    src: url("fonts/itcedscr.ttf");
+}
+
 @media only screen and (max-width: 992px) {
     header, main, footer {
         padding-left: 0px;
@@ -9,4 +15,47 @@
     header, main, footer {
         padding-left: 300px;
     }
+}
+
+ul.sidenav.sidenav-fixed li {
+    line-height: 44px;
+}
+
+ul.sidenav.sidenav-fixed li.border {
+    border-style: solid;
+    border-color: #e0e0e0;
+    border-width: 0 0 1px 0;
+}
+
+ul.sidenav.sidenav-fixed li.logo {
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    border-color: transparent;
+}
+
+ul.sidenav.sidenav-fixed li a {
+    font-size: 13px;
+    line-height: 44px;
+    height: 44px;
+    padding: 0 30px;
+}
+
+ul.sidenav.sidenav-fixed li a i.material-icons {
+    height: 100%;
+}
+
+#logo-container {
+    height: 100px;
+    margin-bottom: 32px;
+}
+
+#logo-container:hover {
+    background-color: transparent;
+}
+
+#front-page-logo {
+    display: inline-block;
+    height: 100px;
+    pointer-events: none;
 }
