@@ -39,7 +39,7 @@ class Users:
             return
 
         username = req.params['username']
-        if self.db.get_user(username):
+        if self.db.get_user(username) == '':
             resp.status = falcon.HTTP_CONFLICT
             resp.body = "Username already exists."
             return
