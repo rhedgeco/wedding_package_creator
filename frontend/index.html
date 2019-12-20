@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>General Falcon Webserver</title>
+    <title>WPC Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <link href="data/css/material-icons.css" rel="stylesheet">
@@ -11,42 +11,32 @@
     <script src="data/js/jquery-3.4.1.min.js"></script>
     <script src="data/js/materialize.min.js"></script>
 </head>
-<body class="">
-<header>
-    <nav class="nav-extended pink lighten-3">
-        <div class="nav-wrapper">
-            <a href="/" class="brand-logo center hide-on-med-and-down"
-               style="font-family: 'Fancy',serif; font-size: 40px">
-                Wedding Package Creator</a>
-            <a href="/" class="brand-logo center hide-on-large-only"
-               style="font-family: 'Fancy',serif; font-size: 45px">WPC</a>
-            <a href="" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="sidenav sidenav-fixed" style="transform: translateX(-105%)">
-                <li class="logo"><a id="logo-container" href="/">
-                    <img id="front-page-logo" src="data/images/WeddingPlannerLogo.png">
-                </a></li>
-                <li class="border"></li>
-                <li>
-                    <a class="waves-effect waves-green" href="account.html"><i class="material-icons left">account_circle</i>My Account</a>
-                </li>
-                <li>
-                    <a class="waves-effect waves-green" href="packages.html"><i class="material-icons left">create</i>Package Planner</a>
-                </li>
-                <li class="border"></li>
-                <li>
-                    <a class="waves-effect waves-green" href="sass.html">Vendors</a>
-                </li>
-                <li>
-                    <a class="waves-effect waves-green" href="components.html">Services</a>
-                </li>
-                <li>
-                    <a class="waves-effect waves-green" href="js.html">Scheduler</a>
-                </li>
-                <li class="border"></li>
-            </ul>
+<body class="blue-grey lighten-5">
+<div class="valign-wrapper-page row">
+    <div class="col s12 m6 offset-m3 l4 offset-l4">
+        <div class="card">
+            <form onsubmit="M.toast({html: 'Pressed Login'}); return false;">
+                <div class="card-content center-align">
+                    <img src="data/images/WeddingPlannerLogo.png" style="height: 100px">
+                    <span class="card-title">Login</span>
+                    <div class="input-field">
+                        <input id="username" type="text" class="validate" required>
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="password" type="password" class="validate" required>
+                        <label for="password">Password</label>
+                    </div>
+
+                </div>
+                <div class="card-action center-align">
+                    <button type="submit" class="btn pink lighten-3 waves-effect waves-green">Login</button>
+                    <a href="sign-up.html" class="btn-flat green-text">Sign Up</a>
+                </div>
+            </form>
         </div>
-    </nav>
-</header>
-<script>M.AutoInit();</script>
+    </div>
+</div>
+<script src="data/js/custom-js-actions.js"></script>
 </body>
 </html>
