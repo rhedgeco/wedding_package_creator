@@ -33,16 +33,19 @@ class Users:
         resp.body = user
 
     def on_post(self, req, resp):
-        if not validate_params(req.params, 'username', 'password'):
+        if not validate_params(req.params, 'first_name', 'last_name', 'email', 'username', 'password'):
             resp.status = falcon.HTTP_BAD_REQUEST
-            resp.body = "Bad parameters."
+            resp.body = 'Bad parameters.'
             return
 
         username = req.params['username']
         if self.db.get_user(username) == '':
             resp.status = falcon.HTTP_CONFLICT
-            resp.body = "Username already exists."
+            resp.body = 'Username already exists.'
             return
 
+        first_name = req.params['first_name']
+        last_name = req.params['last_name']
+        email = req.params['email']
         password = hash_password(req.params['password'])
-        self.db.create_user(username, password)
+        self.db.create_user(first_name, last_name, email, username, password)

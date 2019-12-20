@@ -14,9 +14,15 @@ class DatabaseManager:
     def get_user(self, username: str):
         return json.dumps(self.db.fetchone_query(f"SELECT 1 FROM users WHERE username='{username}'"), ensure_ascii=True)
 
-    def create_user(self, username: str, password_hash: str):
-        self.db.send_query(f"INSERT INTO users(username, password_hash, last_access) "
-                           f"VALUES ('{username}', '{password_hash}', '{datetime.now().strftime(TIME_FORMAT)}')")
+    def create_user(self, first_name: str, last_name:str, email: str, username: str, password_hash: str):
+        self.db.send_query(f"INSERT INTO users(first_name, last_name, email, username, password_hash, last_access) "
+                           f"VALUES ("
+                           f"'{first_name}', "
+                           f"'{last_name}', "
+                           f"'{email}', "
+                           f"'{username}', "
+                           f"'{password_hash}', "
+                           f"'{datetime.now().strftime(TIME_FORMAT)}')")
 
     def update_user_access(self, username: str):
         self.db.send_query(f"UPDATE users SET last_access = {datetime.now().strftime(TIME_FORMAT)} "
