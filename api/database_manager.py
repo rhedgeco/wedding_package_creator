@@ -12,7 +12,7 @@ class DatabaseManager:
         self.db = database
 
     def get_user(self, username: str):
-        return json.dumps(self.db.fetchone_query(f"SELECT 1 FROM users WHERE username='{username}'"), ensure_ascii=True)
+        return json.dumps(self.db.fetchone_query(f"SELECT * FROM users WHERE username='{username}'"), ensure_ascii=True)
 
     def create_user(self, first_name: str, last_name:str, email: str, username: str, password_hash: str):
         self.db.send_query(f"INSERT INTO users(first_name, last_name, email, username, password_hash, last_access) "
