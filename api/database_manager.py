@@ -12,7 +12,7 @@ class DatabaseManager:
         self.db = database
 
     def get_user(self, username: str):
-        return json.dumps(self.db.fetchone_query(f"SELECT * FROM users WHERE username='{username}'"), ensure_ascii=True)
+        return self.db.fetchone_query(f"SELECT * FROM users WHERE username='{username}'")
 
     def create_user(self, first_name: str, last_name:str, email: str, username: str, password_hash: str):
         self.db.send_query(f"INSERT INTO users(first_name, last_name, email, username, password_hash, last_access) "
@@ -25,8 +25,8 @@ class DatabaseManager:
                            f"'{datetime.now().strftime(TIME_FORMAT)}')")
 
     def update_user_access(self, username: str):
-        self.db.send_query(f"UPDATE users SET last_access = {datetime.now().strftime(TIME_FORMAT)} "
-                           f"WHERE username = {username}")
+        self.db.send_query(f"UPDATE users SET last_access = '{datetime.now().strftime(TIME_FORMAT)}' "
+                           f"WHERE username = '{username}'")
 
     def validate_user_expire(self, username: str, expire_time):
         user = self.get_user(username)

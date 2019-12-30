@@ -1,14 +1,14 @@
 import falcon
 
-from api.database_manager import DatabaseManager
+from api.database_manager import SqliteDatabase, DatabaseManager
 from api.authenticator import hash_password, validate_token_expire, TokenValidationType
 from api.api_utils import validate_params
 
 
 class Users:
 
-    def __init__(self, manager: DatabaseManager):
-        self.db = manager
+    def __init__(self, database: SqliteDatabase):
+        self.db = DatabaseManager(database)
 
     def on_get(self, req, resp):
         if not validate_params(req.params, 'authToken'):

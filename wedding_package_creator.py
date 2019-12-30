@@ -10,10 +10,11 @@ with open(Path('api') / 'database_config.sql') as file:
     db_config = file.read()
 db = SqliteDatabase('wedding_package_database', db_config)
 
-manager = DatabaseManager(db)
-
 # Add all api locations
-users = Users(manager)
+users = Users(db)
 app.add_route('users', users)
+
+auth = Auth(db)
+app.add_route('auth', auth)
 
 app.launch_webserver()
