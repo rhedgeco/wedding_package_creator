@@ -59,3 +59,19 @@ ul.sidenav.sidenav-fixed li a i.material-icons {
     height: 100px;
     pointer-events: none;
 }
+
+@keyframes verticalRevealAnimation{
+    0%{
+        transform: translateY(-20px);
+        opacity: 0;
+        }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+        }
+}
+
+.vertical-reveal{
+    animation: verticalRevealAnimation 0.3s forwards 0.1s linear;
+    opacity: 0;
+}

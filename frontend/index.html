@@ -14,10 +14,10 @@
 <body class="blue-grey lighten-5">
 <div class="valign-wrapper-page row">
     <div class="col s12 m6 offset-m3 l4 offset-l4">
-        <div class="card">
-            <form onsubmit="M.toast({html: 'Pressed Login'}); return false;">
+        <div class="card vertical-reveal">
+            <form onsubmit="login_user(); return false;">
                 <div class="card-content center-align">
-                    <img src="data/images/WeddingPlannerLogo.png" style="height: 100px">
+                    <img src="data/images/WeddingPlannerLogo.png" alt="" style="height: 100px">
                     <span class="card-title">Login</span>
                     <div class="input-field">
                         <input id="username" type="text" class="validate" required>
@@ -38,5 +38,6 @@
     </div>
 </div>
 <script src="data/js/custom-js-actions.js"></script>
+<script src="data/js/pages/login.js"></script>
 </body>
 </html>
